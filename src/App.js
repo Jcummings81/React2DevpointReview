@@ -4,12 +4,7 @@ import Form from './Form'
 
 class App extends Component {
   state = {
-    todos: [
-      {id: 1, name: 'Learn Rails', complete: true },
-      {id: 2, name: 'Learn React', complete: false },
-      {id: 3, name: 'Learn Redux', complete: false },
-      {id: 4, name: 'Profit', complete: false }
-    ]
+    todos: []
   }
 
   addItem = (name) => {
@@ -22,7 +17,7 @@ class App extends Component {
 render() {
 return ( 
     <div>
-      <Form />
+      <Form addTodo={this.addItem} />
       <List todos={this.state.todos}
       name="Todo list" />
     </div>

@@ -6,9 +6,11 @@ class Form extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        const { name } = this.state
+        this.props.addTodo(name)
         this.setState({name: ''}) 
     }
-    
+
     handleChange = (e) => {
         this.setState({ name: e.target.value })
     }
