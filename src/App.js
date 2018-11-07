@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import List from './List'
 
 class App extends Component {
   state = {
@@ -12,13 +13,8 @@ class App extends Component {
   render() {
 return ( 
     <div>
-      <ul>
-        { this.state.todos.map( todo => {
-            return <li key={todo.id}>{todo.name}</li>
-        } 
-        )}
-        
-      </ul>
+      <List todos={this.state.todos}
+      name="Todo list" />
     </div>
     );
   }
