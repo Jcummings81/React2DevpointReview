@@ -11,7 +11,15 @@ class App extends Component {
       {id: 4, name: 'Profit', complete: false }
     ]
   }
-  render() {
+
+  addItem = (name) => {
+    const id = Math.floor(( 1 + Math.random()) * 0x1000)
+    const { todos } = this.state
+    const todo = { name, id, complete: false }
+    this.setState({ todos: [todo, ...todos] })
+  }
+
+render() {
 return ( 
     <div>
       <Form />
