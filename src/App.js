@@ -47,7 +47,7 @@ class App extends Component {
   }
 
 render() {
-  const {todos, view } = this.state
+  const { view } = this.state
 return ( 
     <>
       <Form addTodo={this.addItem} />
