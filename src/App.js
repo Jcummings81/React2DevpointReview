@@ -53,7 +53,7 @@ return (
       <Form addTodo={this.addItem} />
       <List 
       todos={this.visibleTodos()}
-      name="Todo list" 
+      name="Things To Do" 
       todoClick={this.handleClick}
       />
       <Footer view={view} setFilter={this.setFilter} />
