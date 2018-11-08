@@ -3,12 +3,18 @@ import List from './List'
 import Form from './Form'
 import Footer from './Footer'
 import Clock from './Clock'
+import Market from './Market'
 
 class App extends Component {
   state = {
     todos: [],
     view: 'All',
     showClock: false,
+    showMarket: false,
+  }
+
+  toggleShowMarket = () => {
+    this.setState({ showMarket: !this.state.showMarket })
   }
 
   toggleClock = () => {
@@ -53,12 +59,16 @@ class App extends Component {
   }
 
 render() {
-  const { view, showClock } = this.state
+  const { view, showClock, showMarket } = this.state
 return ( 
     <>
       { showClock && <Clock /> }
       <button onClick={this.toggleClock}>
       { showClock ? 'Hide' : 'Show' }
+      </button>
+      { showMarket && <Market /> }
+      <button onClick={this.toggleShowMarket}>
+      { showMarket ? 'Hide' : 'Show'}
       </button>
       <Form addTodo={this.addItem} />
       <List 
