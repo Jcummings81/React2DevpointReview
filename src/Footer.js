@@ -1,8 +1,19 @@
 import React from 'react'
 
+const styles = {
+    link: {
+        cursor: 'pointer',
+        textDecoration: 'underline',
+        color: 'blue',
+        marginLeft: '5px', 
+        marginRight: '5px',
+    }
+  
+}
+
 const filterLink = (current, text, setFilter) => {
     if (current === text )
-    return <span>{text}</span>
+        return <span>{text}</span>
     return (
         <span 
         style={styles.link}
@@ -10,13 +21,12 @@ const filterLink = (current, text, setFilter) => {
         >
         {text}
         </span>
-
     )
 }
 
 const Footer = ({ view, setFilter }) => (
     <div>
-        { ['All', 'Active', 'Complete'].map( f = filterLink(view, text, setFilter ) ) }
+        { ['All', 'Active', 'Complete'].map( text => filterLink(view, text, setFilter ) ) }
 
     </div>
 )
