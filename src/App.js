@@ -9,8 +9,8 @@ class App extends Component {
     view: 'All'
   }
 
-  setFilter = (view) => {
-    this.setState({ view })
+  setFilter = (clicked) => {
+    this.setState({ view: clicked })
   }
 
   visibleTodos = () => {
