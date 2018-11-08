@@ -68,7 +68,7 @@ return (
       </button>
       { showMarket && <Market /> }
       <button onClick={this.toggleShowMarket}>
-      { showMarket ? 'Hide' : 'Show'}
+      { showMarket ? 'Hide' : 'Market'}
       </button>
       <Form addTodo={this.addItem} />
       <List 
