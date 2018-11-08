@@ -12,6 +12,18 @@ class App extends Component {
   setFilter = (view) => {
     this.setState({ view })
   }
+
+  visibleTodos = () => {
+    const { todos, view } = this.state
+    switch(view) {
+      case 'Active':
+        return todos.filter(t => !t.complete)
+      case 'Complete':
+        return todos.filter(t => t.complete)
+      default: 
+        return todos
+    }
+  }
   addItem = (name) => {
     const id = Math.floor(( 1 + Math.random()) * 0x1000)
     const { todos } = this.state
@@ -40,7 +52,7 @@ return (
     <div>
       <Form addTodo={this.addItem} />
       <List 
-      todos={todos}
+      todos={this.visibleTodos()}
       name="Todo list" 
       todoClick={this.handleClick}
       />

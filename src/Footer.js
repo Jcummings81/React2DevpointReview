@@ -7,8 +7,7 @@ const styles = {
         color: 'blue',
         marginLeft: '5px', 
         marginRight: '5px',
-    }
-  
+    } 
 }
 
 const filterLink = (current, text, setFilter) => {
