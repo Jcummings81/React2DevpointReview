@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import List from './List'
 import Form from './Form'
 import Footer from './Footer'
+import Clock from './Clock'
 
 class App extends Component {
   state = {
     todos: [],
-    view: 'All'
+    view: 'All',
+    showClock: false,
+  }
+
+  toggleClock = () => {
+    this.setState({ showClock: !this.state.showClock })
   }
 
   setFilter = (clicked) => {
@@ -47,9 +53,13 @@ class App extends Component {
   }
 
 render() {
-  const { view } = this.state
+  const { view, showClock } = this.state
 return ( 
     <>
+      { showClock && <Clock /> }
+      <button onClick={this.toggleClock}>
+      { showClock ? 'Hide' : 'Show' }
+      </button>
       <Form addTodo={this.addItem} />
       <List 
       todos={this.visibleTodos()}
