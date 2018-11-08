@@ -4,9 +4,15 @@ class Market extends React.Component {
     state = { coins: [], loading: true }
 
     componentDidMount() {
-        fetch('https://api.coinmarketcap.com/v2/listings/')
+        fetch('https://api.coinmarketcap.com/v2/ticker/?limit=10')
             .then( res => res.json() )
-            .then( res => this.setState({ coins: res.data, loading: false }) )
+            .then( res =>  {
+                const coins = []
+                Object.keys(res.data).forEach( thing => 
+                    coins.push(res.data[thing])
+                    )
+                this.setState({ coins, loading: false }) 
+            })
     }
     render() {
         const {coins, loading } = this.state
@@ -17,7 +23,7 @@ class Market extends React.Component {
             return (
                 <ol>
                     { coins.map( c => 
-                    <li key={c.id}>{c.symbol} - ${c.price_usd}</li>
+                    <li key={c.id}>{c.symbol} - ${c.quotes.USD.price.toFixed(2)}</li>
                         )
                     }
                 </ol>
