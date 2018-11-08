@@ -3,7 +3,11 @@ import React from 'react'
 class Market extends React.Component {
     state = { coins: [], loading: true }
 
-    componentDidMount() {
+    componentDidMount() { 
+        this.interval = setInterval( this.fetchCoins, 60000 * 5 )
+    }
+
+    fetchCoins = () => {
         fetch('https://api.coinmarketcap.com/v2/ticker/?limit=10')
             .then( res => res.json() )
             .then( res =>  {
