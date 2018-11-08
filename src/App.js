@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import List from './List'
 import Form from './Form'
+import Footer from './Footer'
 
 class App extends Component {
   state = {
-    todos: []
+    todos: [],
+    view: 'All'
   }
 
+  setFilter = (view) => {
+    this.setState({ view })
+  }
   addItem = (name) => {
     const id = Math.floor(( 1 + Math.random()) * 0x1000)
     const { todos } = this.state
@@ -30,13 +35,16 @@ class App extends Component {
   }
 
 render() {
+  const {todos, view } = this.state
 return ( 
     <div>
       <Form addTodo={this.addItem} />
-      <List todos={this.state.todos}
+      <List 
+      todos={todos}
       name="Todo list" 
       todoClick={this.handleClick}
       />
+      <Footer view={view} setFilter={this.setFilter} />
     </div>
     );
   }
