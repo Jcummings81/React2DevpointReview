@@ -4,7 +4,12 @@ class Market extends React.Component {
     state = { coins: [], loading: true }
 
     componentDidMount() { 
+        this.fetchCoins()
         this.interval = setInterval( this.fetchCoins, 60000 * 5 )
+    }
+
+    componentWillUnmount() { 
+        clearInterval(this.interval)
     }
 
     fetchCoins = () => {
