@@ -49,7 +49,7 @@ class App extends Component {
 render() {
   const {todos, view } = this.state
 return ( 
-    <div>
+    <>
       <Form addTodo={this.addItem} />
       <List 
       todos={this.visibleTodos()}
@@ -57,7 +57,7 @@ return (
       todoClick={this.handleClick}
       />
       <Footer view={view} setFilter={this.setFilter} />
-    </div>
+    </>
     );
   }
 }
